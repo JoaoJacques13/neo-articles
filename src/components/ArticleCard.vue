@@ -4,7 +4,7 @@
     <v-card-title class="text-white">{{ article.title }}</v-card-title>
     <v-card-text class="text-white">{{ truncatedSummary }}</v-card-text>
     <v-card-actions>
-      <v-btn color="primary" :href="article.link" target="_blank">
+      <v-btn color="primary" @click="readMore">
         Ler mais
       </v-btn>
     </v-card-actions>
@@ -13,10 +13,13 @@
   
 <script setup>
   import { computed } from 'vue';
+  import { useRouter } from 'vue-router'; 
 
   const props = defineProps({
     article: Object
   });
+
+  const router = useRouter();
 
   const truncatedSummary = computed(() => {
     if (props.article && props.article.summary && props.article.summary.length > 100) {
@@ -24,6 +27,10 @@
     }
     return props.article.summary || '';
   });
+
+  const readMore = () => {
+    router.push({ name: 'ArticleDetail', params: { id: props.article.id } });
+  };
 </script>
 
 <style scoped>

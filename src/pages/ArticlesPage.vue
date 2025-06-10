@@ -1,5 +1,4 @@
 <template>
-  <pre>{{ store.state.articles }}</pre>
   <v-container>
     <h1 class="text-h4 text-white mb-4">Artigos</h1>
 

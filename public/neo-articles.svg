@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 50" width="130" height="50">
+  <!-- Letra N estilizada (cor escura) -->
+  <path d="M5 40 V10 H15 L28 30 V10 H36 V40 H26 L13 20 V40 Z" fill="#121212"></path>
+
+  <!-- Letra E como livro (roxo) -->
+  <path d="M45 10 H75 V16 H53 V22 H71 V28 H53 V34 H75 V40 H45 Z" fill="#7747ff"></path>
+  <rect x="53" y="10" width="2" height="30" fill="#ffffff"></rect>
+
+  <!-- Letra O estilizada (cor escura) -->
+  <path d="M93 10 a10 10 0 1 1 0 30 a10 10 0 1 1 0 -30 Z M93 16 a4 4 0 1 0 0 20 a4 4 0 1 0 0 -20 Z" fill="#121212"></path>
+</svg>

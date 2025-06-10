@@ -20,13 +20,13 @@ export default {
   },
   actions: {
     async fetchArticles({ commit }) {
-      commit('setLoading', true)
+      commit('setLoading', true);
       try {
         const articles = await getArticles()
         commit('setArticles', articles)
         commit('setError', null)
       } catch (err) {
-        commit('setError', err.message)
+        commit('setError', err.message || 'Falha ao carregar artigos.')
       } finally {
         commit('setLoading', false)
       }
@@ -37,6 +37,9 @@ export default {
       return state.articles.filter(article =>
         article.title.toLowerCase().includes(search.toLowerCase())
       )
+    },
+    getArticleById: (state) => (id) => {
+      return state.articles.find(article => String(article.id) === String(id));
     }
   }
 }

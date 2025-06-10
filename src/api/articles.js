@@ -8,7 +8,7 @@ export async function getArticles() {
       id: article.id,
       title: article.title,
       summary: article.body.slice(0, 100) + '...',
-      image: `https://picsum.photos/seed/${article.id}/400/200`, // imagem fake
+      image: `https://picsum.photos/seed/${article.id}/400/200`,
       link: `https://jsonplaceholder.typicode.com/posts/${article.id}`
     }))
   } catch (error) {
