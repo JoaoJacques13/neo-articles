@@ -19,44 +19,44 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+  import { useRouter } from 'vue-router';
 
-const router = useRouter();
+  const router = useRouter();
 
-const goToArticles = () => {
-  router.push('/articles');
-};
+  const goToArticles = () => {
+    router.push('/articles');
+  };
 </script>
 
 <style scoped>
-.home-page {
-  min-height: calc(100vh - 64px);
-}
+  .home-page {
+    min-height: calc(100vh - 64px);
+  }
 
-.animate__animated {
-  animation-duration: 1s;
-  animation-fill-mode: both;
-}
-.animate__fadeInDown {
-  animation-name: fadeInDown;
-}
-.animate__fadeInUp {
-  animation-name: fadeInUp;
-}
-.animate__zoomIn {
-  animation-name: zoomIn;
-}
+  .animate__animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  .animate__fadeInDown {
+    animation-name: fadeInDown;
+  }
+  .animate__fadeInUp {
+    animation-name: fadeInUp;
+  }
+  .animate__zoomIn {
+    animation-name: zoomIn;
+  }
 
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translate3d(0, -20px, 0); }
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translate3d(0, 20px, 0); }
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
-}
-@keyframes zoomIn {
-  from { opacity: 0; transform: scale3d(.3, .3, .3); }
-  50% { opacity: 1; }
-}
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translate3d(0, -20px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 20px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes zoomIn {
+    from { opacity: 0; transform: scale3d(.3, .3, .3); }
+    50% { opacity: 1; }
+  }
 </style>

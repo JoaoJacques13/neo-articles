@@ -28,50 +28,50 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { useStore } from 'vuex';
+  import { ref, onMounted, computed } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
+  import { useStore } from 'vuex';
 
-const route = useRoute();
-const router = useRouter();
-const store = useStore();
+  const route = useRoute();
+  const router = useRouter();
+  const store = useStore();
 
-const articleId = computed(() => route.params.id);
-const article = ref(null);
-const loading = ref(true);
-const error = ref(null);
+  const articleId = computed(() => route.params.id);
+  const article = ref(null);
+  const loading = ref(true);
+  const error = ref(null);
 
-onMounted(async () => {
-  if (articleId.value) {
-    try {
-      const foundArticle = store.getters['articles/getArticleById'](articleId.value);
+  onMounted(async () => {
+    if (articleId.value) {
+      try {
+        const foundArticle = store.getters['articles/getArticleById'](articleId.value);
 
-      if (foundArticle) {
-        article.value = foundArticle;
-      } else {
-        await store.dispatch('articles/fetchArticles');
-        article.value = store.getters['articles/getArticleById'](articleId.value);
+        if (foundArticle) {
+          article.value = foundArticle;
+        } else {
+          await store.dispatch('articles/fetchArticles');
+          article.value = store.getters['articles/getArticleById'](articleId.value);
+        }
+        loading.value = false;
+      } catch (err) {
+        error.value = err.message || 'Não foi possível carregar o artigo.';
+        loading.value = false;
       }
-      loading.value = false;
-    } catch (err) {
-      error.value = err.message || 'Não foi possível carregar o artigo.';
+    } else {
+      error.value = 'ID do artigo não fornecido.';
       loading.value = false;
     }
-  } else {
-    error.value = 'ID do artigo não fornecido.';
-    loading.value = false;
-  }
-});
+  });
 
-const goBack = () => {
-  router.back();
-};
+  const goBack = () => {
+    router.back();
+  };
 </script>
 
 <style scoped>
-.article-detail-page {
-  max-width: 800px;
-  margin: 2rem auto;
-  color: white;
-}
+  .article-detail-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    color: white;
+  }
 </style>
